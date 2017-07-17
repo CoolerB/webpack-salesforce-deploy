@@ -12,7 +12,8 @@ var WebpackSalesforceDeployPlugin = module.exports = function (options) {
 
     // get the Org credintials from the jsforce.config.js file.
     try { jsForceConfig = require(options.jsConfigPath) } catch (e) {}
-
+    
+    assetName = jsForceConfig && jsForceConfig.staticResourceName ? jsForceConfig.staticResourceName : options.assetName;
 };
 
 WebpackSalesforceDeployPlugin.prototype.triggerDeploy = function (stats) {
